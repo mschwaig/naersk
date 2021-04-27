@@ -146,6 +146,7 @@ rec
                     (throw "No 'rev', 'tag' or 'branch' available to specify key, nor a git revision was found in Cargo.lock");
                   checkout = builtins.fetchGit ({
                     url = val.git;
+                    submodules = true;
                   } // lib.optionalAttrs (val ? rev) {
                     rev = val.rev;
                   } // lib.optionalAttrs (val ? branch) {
